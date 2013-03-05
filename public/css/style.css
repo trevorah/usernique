@@ -1,0 +1,9 @@
+h1, h2, h3, h4, h5, h6, .brand {
+	font-family: 'Lobster', Georgia, Times, serif;
+	text-align:center;
+	font-size:7em;
+}
+p, div {
+	font-family: 'Cabin', Helvetica, Arial, sans-serif;
+	text-align:center;
+}
