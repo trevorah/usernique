@@ -16,6 +16,8 @@ for(var i = 0; i < length; i++) {
 }
 
 $("#username").text(name);
+$("#twitter-url").text("twitter.com/"+name).attr("href","http://www.twitter.com/"+name);
+$("#github-url").text("github.com/"+name).attr("href","http://www.github.com/"+name);
 
 $.get("github/" + name, function(data) {
 	if(data == "free") {

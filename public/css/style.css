@@ -7,3 +7,6 @@ p, div {
 	font-family: 'Cabin', Helvetica, Arial, sans-serif;
 	text-align:center;
 }
+a {
+	color: black;
+}
