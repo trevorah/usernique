@@ -25,14 +25,4 @@ app.get('/twitter/:username', function(req, res) {
 	});
 });
 
-app.get('/reddit/:username', function(req, res) {
-	request('http://reddit.com/user/' + req.params.username, function (error, response, body) {
-		if(!error && response.statusCode == 200) {
-			res.send('taken');
-		} else {
-			res.send('free');
-		}
-	});
-});
-
 app.listen(process.env.PORT || 8080);

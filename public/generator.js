@@ -18,7 +18,6 @@ for(var i = 0; i < length; i++) {
 $("#username").text(name);
 $("#twitter-url").text("twitter.com/"+name).attr("href","http://www.twitter.com/"+name);
 $("#github-url").text("github.com/"+name).attr("href","http://www.github.com/"+name);
-$("#reddit-url").text("reddit.com/user/"+name).attr("href","http://reddit.com/user/"+name);
 
 $.get("github/" + name, function(data) {
 	if(data == "free") {
@@ -33,13 +32,5 @@ $.get("twitter/" + name, function(data) {
 		$("#twitter").attr("class", "icon-ok");
 	} else {
 		$("#twitter").attr("class", "icon-remove");
-	}
-});
-
-$.get("reddit/" + name, function(data) {
-	if(data == "free") {
-		$("#reddit").attr("class", "icon-ok");
-	} else {
-		$("#reddit").attr("class", "icon-remove");
 	}
 });
