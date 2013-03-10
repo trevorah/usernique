@@ -25,4 +25,14 @@ app.get('/twitter/:username', function(req, res) {
 	});
 });
 
+app.get('/io/:username', function(req, res) {
+	request('http://www.'+req.params.username+'.io/', function (error, response, body) {
+		if(!error && response.statusCode == 200) {
+			res.send('taken');
+		} else {
+			res.send('free');
+		}
+	});
+});
+
 app.listen(process.env.PORT || 8080);

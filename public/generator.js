@@ -18,6 +18,7 @@ for(var i = 0; i < length; i++) {
 $("#username").text(name);
 $("#twitter-url").text("twitter.com/"+name).attr("href","http://www.twitter.com/"+name);
 $("#github-url").text("github.com/"+name).attr("href","http://www.github.com/"+name);
+$("#io-url").text(name+".io").attr("href","http://www."+name+".io");
 
 $.get("github/" + name, function(data) {
 	if(data == "free") {
@@ -32,5 +33,13 @@ $.get("twitter/" + name, function(data) {
 		$("#twitter").attr("class", "icon-ok");
 	} else {
 		$("#twitter").attr("class", "icon-remove");
+	}
+});
+
+$.get("io/" + name, function(data) {
+	if(data == "free") {
+		$("#io").attr("class", "icon-ok");
+	} else {
+		$("#io").attr("class", "icon-remove");
 	}
 });
