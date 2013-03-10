@@ -24,31 +24,39 @@ $("#com-url").text(name+".com").attr("href","http://www."+name+".com");
 $.get("github/" + name, function(data) {
 	if(data == "free") {
 		$("#github").attr("class", "icon-ok");
-	} else {
+	} else if(data == "taken") {
 		$("#github").attr("class", "icon-remove");
+	} else {
+		$("#github").attr("class", "icon-question-sign");
 	}
 });
 
 $.get("twitter/" + name, function(data) {
 	if(data == "free") {
 		$("#twitter").attr("class", "icon-ok");
-	} else {
+	} else if(data == "taken") {
 		$("#twitter").attr("class", "icon-remove");
+	} else {
+		$("#twitter").attr("class", "icon-question-sign");
 	}
 });
 
 $.get("io/" + name, function(data) {
 	if(data == "free") {
 		$("#io").attr("class", "icon-ok");
-	} else {
+	} else if(data == "taken") {
 		$("#io").attr("class", "icon-remove");
+	} else {
+		$("#io").attr("class", "icon-question-sign");
 	}
 });
 
 $.get("com/" + name, function(data) {
 	if(data == "free") {
 		$("#com").attr("class", "icon-ok");
-	} else {
+	} else if(data == "taken") {
 		$("#com").attr("class", "icon-remove");
+	} else {
+		$("#com").attr("class", "icon-question-sign");
 	}
 });
