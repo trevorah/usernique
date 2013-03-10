@@ -19,6 +19,7 @@ $("#username").text(name);
 $("#twitter-url").text("twitter.com/"+name).attr("href","http://www.twitter.com/"+name);
 $("#github-url").text("github.com/"+name).attr("href","http://www.github.com/"+name);
 $("#io-url").text(name+".io").attr("href","http://www."+name+".io");
+$("#com-url").text(name+".com").attr("href","http://www."+name+".com");
 
 $.get("github/" + name, function(data) {
 	if(data == "free") {
@@ -41,5 +42,13 @@ $.get("io/" + name, function(data) {
 		$("#io").attr("class", "icon-ok");
 	} else {
 		$("#io").attr("class", "icon-remove");
+	}
+});
+
+$.get("com/" + name, function(data) {
+	if(data == "free") {
+		$("#com").attr("class", "icon-ok");
+	} else {
+		$("#com").attr("class", "icon-remove");
 	}
 });
