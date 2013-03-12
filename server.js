@@ -1,31 +1,20 @@
 var request = require("request");
 var express = require('express');
+var checker = require('./lib/checker');
 
 var app = express();
 
 app.use('/', express.static(__dirname + '/public'));
 
 app.get('/github/:username', function(req, res) {
-	request('http://www.github.com/' + req.params.username, function (error, response, body) {
-		if(!error && response.statusCode == 200) {
-			res.send('taken');
-		} else if(response.statusCode == 404) {
-			res.send('free');
-		} else {
-			res.send('unknown');
-		}
+	checker.checkGithub(req.params.username, function(status) {
+		res.send(status);
 	});
 });
 
 app.get('/twitter/:username', function(req, res) {
-	request('http://www.twitter.com/' + req.params.username, function (error, response, body) {
-		if(!error && response.statusCode == 200) {
-			res.send('taken');
-		} else if(response.statusCode == 404) {
-			res.send('free');
-		} else {
-			res.send('unknown');
-		}
+	checker.checkTwitter(req.params.username, function(status) {
+		res.send(status);
 	});
 });
 
