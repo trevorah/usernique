@@ -23,7 +23,7 @@ app.get('/io/:username', function(req, res) {
 		if(!error && response.statusCode == 200) {
 			res.send('taken');
 		} else {
-			res.send('free');
+			res.send('unknown');
 		}
 	});
 });
@@ -33,7 +33,7 @@ app.get('/com/:username', function(req, res) {
 		if(!error && response.statusCode == 200) {
 			res.send('taken');
 		} else {
-			res.send('free');
+			res.send('unknown');
 		}
 	});
 });
