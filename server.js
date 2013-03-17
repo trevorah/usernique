@@ -1,6 +1,7 @@
 var request = require("request");
 var express = require('express');
 var checker = require('./lib/checker');
+var rateLimitedChecker = require('./lib/rateLimitedChecker');
 
 var app = express();
 
@@ -13,9 +14,15 @@ app.get('/github/:username', function(req, res) {
 });
 
 app.get('/twitter/:username', function(req, res) {
-	checker.checkTwitter(req.params.username, function(status) {
-		res.send(status);
-	});
+	if(process.env.twitter_token) {
+		rateLimitedChecker.checkTwitter(req.params.username, function(status) {
+			res.send(status);
+		});
+	} else {
+		checker.checkTwitter(req.params.username, function(status) {
+			res.send(status);
+		});
+	}
 });
 
 app.get('/io/:username', function(req, res) {
