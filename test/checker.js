@@ -1,5 +1,5 @@
 var assert = require('assert');
-var proxyquire = require('proxyquire');
+var sandbox = require('sandboxed-module');
 
 describe('checker', function(){
 	it('should return taken when twitter returns 200', function(done){
@@ -62,5 +62,5 @@ var getChecker = function(stubStatusCode){
 		callback(null, {'statusCode': stubStatusCode});
 	};
 	
-	return proxyquire('../lib/checker.js', {'request': stubRequest});
+	return sandbox.require('../lib/checker', {requires: {'request': stubRequest}});
 };

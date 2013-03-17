@@ -8,7 +8,6 @@
 		"request": "2.x"
 	},
 	"devDependencies": {
-		"proxyquire": "0.4.0",
 		"sandboxed-module": "0.2.x"
 	},
 	"engines": {
