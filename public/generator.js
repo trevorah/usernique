@@ -67,7 +67,10 @@ $.get("io/" + name, function(data) {
 	} else if(data == "taken") {
 		$("#io").attr("class", "icon-remove");
 	} else {
-		$("#io").attr("class", "icon-question-sign").attr("href", "http://www.io.io/cgi-bin/whois?query="+name+".io");
+		$("#io")
+			.attr("class", "icon-question-sign")
+			.attr("href", "http://www.io.io/cgi-bin/whois?query="+name+".io")
+			.attr("target","_blank");
 	}
 });
 
@@ -77,6 +80,9 @@ $.get("com/" + name, function(data) {
 	} else if(data == "taken") {
 		$("#com").attr("class", "icon-remove");
 	} else {
-		$("#com").attr("class", "icon-question-sign").attr("href", "http://whois.net/whois/"+name+".com");
+		$("#com")
+			.attr("class", "icon-question-sign")
+			.attr("href", "http://whois.net/whois/"+name+".com")
+			.attr("target","_blank");
 	}
 });
